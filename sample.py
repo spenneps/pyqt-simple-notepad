@@ -59,14 +59,21 @@ class MainWindow(QMainWindow):
 			self.statusbar.showMessage("new file")
 
 	def file_open_func(self):
-		fname = QFileDialog.getOpenFileName(self, 'Open file',self.rootpath,"Text files (*.txt);")	
-		f = open(fname, 'r')
-		self.filepath = f        
-		with f:        
-			data = f.read()
-			self.textEdit.setText(data) 
 
-		self.statusbar.showMessage("file opened : "+fname)
+		try:		
+			fname = QFileDialog.getOpenFileName(self, 'Open file',self.rootpath,"Text files (*.txt);")	
+			f = open(fname, 'r')
+			self.filepath = f        
+			with f:        
+				data = f.read()
+				self.textEdit.setText(data) 
+
+			self.statusbar.showMessage("file opened : "+fname)
+
+		except IOError as (errno, strerror):
+			self.statusbar.showMessage(strerror)			
+		except:
+			pass
 
 	def file_save_func(self):
 
