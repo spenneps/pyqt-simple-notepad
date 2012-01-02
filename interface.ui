@@ -83,8 +83,8 @@
    <addaction name="file_open"/>
    <addaction name="file_save"/>
    <addaction name="file_print"/>
-   <addaction name="edit_copy"/>
    <addaction name="edit_cut"/>
+   <addaction name="edit_copy"/>
    <addaction name="edit_paste"/>
    <addaction name="edit_undo"/>
    <addaction name="edit_redo"/>
@@ -92,6 +92,10 @@
   <action name="file_new">
    <property name="checkable">
     <bool>false</bool>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>icons/add.png</normaloff>icons/add.png</iconset>
    </property>
    <property name="text">
     <string>&amp;New</string>
@@ -101,6 +105,10 @@
    </property>
   </action>
   <action name="file_open">
+   <property name="icon">
+    <iconset>
+     <normaloff>icons/folder.png</normaloff>icons/folder.png</iconset>
+   </property>
    <property name="text">
     <string>&amp;Open</string>
    </property>
@@ -109,6 +117,10 @@
    </property>
   </action>
   <action name="file_save">
+   <property name="icon">
+    <iconset>
+     <normaloff>icons/disk.png</normaloff>icons/disk.png</iconset>
+   </property>
    <property name="text">
     <string>&amp;Save</string>
    </property>
@@ -122,6 +134,10 @@
    </property>
   </action>
   <action name="file_print">
+   <property name="icon">
+    <iconset>
+     <normaloff>icons/printer.png</normaloff>icons/printer.png</iconset>
+   </property>
    <property name="text">
     <string>&amp;Print</string>
    </property>
@@ -130,6 +146,10 @@
    </property>
   </action>
   <action name="edit_copy">
+   <property name="icon">
+    <iconset>
+     <normaloff>icons/copy.png</normaloff>icons/copy.png</iconset>
+   </property>
    <property name="text">
     <string>&amp;Copy</string>
    </property>
@@ -138,6 +158,10 @@
    </property>
   </action>
   <action name="edit_cut">
+   <property name="icon">
+    <iconset>
+     <normaloff>icons/cut.png</normaloff>icons/cut.png</iconset>
+   </property>
    <property name="text">
     <string>&amp;Cut</string>
    </property>
@@ -146,6 +170,10 @@
    </property>
   </action>
   <action name="edit_paste">
+   <property name="icon">
+    <iconset>
+     <normaloff>icons/paste.png</normaloff>icons/paste.png</iconset>
+   </property>
    <property name="text">
     <string>&amp;Paste</string>
    </property>
@@ -154,11 +182,19 @@
    </property>
   </action>
   <action name="edit_redo">
+   <property name="icon">
+    <iconset>
+     <normaloff>icons/redo.png</normaloff>icons/redo.png</iconset>
+   </property>
    <property name="text">
     <string>&amp;Redo</string>
    </property>
   </action>
   <action name="edit_undo">
+   <property name="icon">
+    <iconset>
+     <normaloff>icons/undo.png</normaloff>icons/undo.png</iconset>
+   </property>
    <property name="text">
     <string>&amp;Undo</string>
    </property>

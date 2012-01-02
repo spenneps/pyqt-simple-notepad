@@ -24,7 +24,7 @@ class MainWindow(QMainWindow):
 		self.file_saveas.activated.connect( self.file_saveas_func)
 		self.file_print.activated.connect( self.file_print_func)
 		self.file_preview.activated.connect( self.file_preview_func)
-
+		self.setWindowIcon(QIcon('icons/add.png'))
 
 	def save_request(self):
 		content  =  self.textEdit.toPlainText()
