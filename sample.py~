@@ -24,7 +24,7 @@ class MainWindow(QMainWindow):
 		self.file_saveas.activated.connect( self.file_saveas_func)
 		self.file_print.activated.connect( self.file_print_func)
 		self.file_preview.activated.connect( self.file_preview_func)
-		self.setWindowIcon(QIcon('icons/add.png'))
+
 
 	def save_request(self):
 		content  =  self.textEdit.toPlainText()
@@ -62,9 +62,9 @@ class MainWindow(QMainWindow):
 	def file_open_func(self):
 
 		try:		
-			fname = QFileDialog.getOpenFileName(self, 'Open file',self.rootpath,"Text files (*.txt);")	
+			fname = QFileDialog.getOpenFileName(self, 'Open file',self.rootpath)	
 			f = open(fname, 'r')
-			self.filepath = f        
+			self.filepath = fname        
 			with f:        
 				data = f.read()
 				self.textEdit.setText(data) 
@@ -80,7 +80,7 @@ class MainWindow(QMainWindow):
 
 		
 		if self.filepath == "":
-			fname = QFileDialog.getSaveFileName(self, 'Save file',self.rootpath,"Text files (*.txt);")		
+			fname = QFileDialog.getSaveFileName(self, 'Save file',self.rootpath)		
 			self.filepath = fname   
 
 		
@@ -91,10 +91,10 @@ class MainWindow(QMainWindow):
 
 	def file_saveas_func(self):
 
-		fname = QFileDialog.getSaveFileName(self, 'Save file',self.rootpath,"Text files (*.txt);")		
+		fname = QFileDialog.getSaveFileName(self, 'Save file',self.rootpath)		
 		self.filepath = fname   		
 		content  =  self.textEdit.toPlainText()
-		filepath = self.filepath
+		filepath =  str(self.filepath)
 		
 		self.save_my_file(filepath,content)
 
@@ -115,10 +115,12 @@ class MainWindow(QMainWindow):
 
 	def save_my_file(self,filepath,content):
 
-	
+
+
 		try:	
-			f = open(filepath,"a+")
+			f = open(filepath,"a")
 			f.write(content)
+			f.truncate()
 			f.close()
 			self.statusbar.showMessage("file saved : "+filepath)			
 			self.last_saved = content
@@ -126,8 +128,9 @@ class MainWindow(QMainWindow):
 			
 		except IOError as (errno, strerror):
 			self.statusbar.showMessage(strerror)			
-		except:
-			pass
+	        except Exception, err:
+			self.statusbar.showMessage("save error!"+str(sys.exc_info()[1]))			
+	
 
 	def msg_box(self):
 		msgBox = QMessageBox(self)
